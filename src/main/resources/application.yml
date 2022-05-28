@@ -1,0 +1,17 @@
+spring:
+  quartz:
+    job-store-type: memory
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: test
+    url: jdbc:postgresql://localhost:5432/currency
+    password: test
+
+org:
+  quartz:
+    jobStore:
+      class: org.quartz.simpl.RAMJobStore
+
+contract:
+  private-key: "****"
+  address: "0x085810ca01b520Db623d71067024A5E1BB7D1529"
