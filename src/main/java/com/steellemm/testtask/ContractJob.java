@@ -6,6 +6,7 @@ import org.quartz.JobExecutionContext;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +31,7 @@ public class ContractJob implements Job {
     public void execute(JobExecutionContext context) {
         try {
             String tableName = context.getJobDetail().getJobDataMap().getString(TABLE_NAME);
-            Instant now = Instant.now();
+            Timestamp now = Timestamp.from(Instant.now());
             CompletableFuture<BigInteger> bnbCall = smartContract.getBNB().sendAsync();
             CompletableFuture<BigInteger> btcCall = smartContract.getBTC().sendAsync();
             CompletableFuture<BigInteger> ethCall = smartContract.getETH().sendAsync();

@@ -4,7 +4,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: test
-    url: jdbc:postgresql://localhost:5432/currency
+    url: jdbc:postgresql://localhost:5432/test
     password: test
 
 org:

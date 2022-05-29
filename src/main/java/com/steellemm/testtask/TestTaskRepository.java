@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Map;
 
@@ -17,7 +18,7 @@ public class TestTaskRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(String tableName, CurrencyEnum currency, Instant timestamp, BigInteger price) {
+    public void save(String tableName, CurrencyEnum currency, Timestamp timestamp, BigInteger price) {
         jdbcTemplate.update(String.format("INSERT INTO %s VALUES(:time, :symbol, :price)", tableName), Map.of(
                 "time", timestamp,
                 "symbol", currency.name(),
