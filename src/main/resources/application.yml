@@ -14,5 +14,5 @@ org:
 
 contract:
   node-url: "https://data-seed-prebsc-1-s1.binance.org:8545/"
-  private-key: "****"
-  address: "0x05178F13Ee9a5Ae1A8478f5730f260a34A238d82"
+  private-key: "***"
+  address: "0x63FE820C87F75F5dBD3ba7f109B4771df5b6Ae04"
