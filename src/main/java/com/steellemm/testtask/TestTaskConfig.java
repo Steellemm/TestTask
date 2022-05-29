@@ -21,6 +21,8 @@ public class TestTaskConfig {
 
     @Value("${contract.address}")
     private String contractAddress;
+    @Value("${contract.node-url}")
+    private String nodeUrl;
     @Value("${contract.private-key}")
     private String privateKey;
 
@@ -31,7 +33,7 @@ public class TestTaskConfig {
 
     @Bean
     public Web3j web3j() {
-        return Web3j.build(new HttpService());
+        return Web3j.build(new HttpService(nodeUrl));
     }
 
     @Bean
@@ -90,8 +92,8 @@ public class TestTaskConfig {
     }
 
     @Bean
-    public Trigger trigger5(JobDetail job2) {
-        return generateTrigger(job2, PeriodEnum.DAY);
+    public Trigger trigger5(JobDetail job5) {
+        return generateTrigger(job5, PeriodEnum.DAY);
     }
 
 
@@ -99,7 +101,7 @@ public class TestTaskConfig {
         return JobBuilder.newJob().ofType(ContractJob.class)
                 .storeDurably()
                 .usingJobData(ContractJob.TABLE_NAME, periodEnum.tableName())
-                .withIdentity(PeriodEnum.MINUTE_1.tableName())
+                .withIdentity(periodEnum.tableName())
                 .withDescription("Job has started: " + periodEnum)
                 .build();
     }

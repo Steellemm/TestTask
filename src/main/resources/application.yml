@@ -13,5 +13,6 @@ org:
       class: org.quartz.simpl.RAMJobStore
 
 contract:
+  node-url: "https://data-seed-prebsc-1-s1.binance.org:8545/"
   private-key: "****"
-  address: "0x085810ca01b520Db623d71067024A5E1BB7D1529"
+  address: "0x05178F13Ee9a5Ae1A8478f5730f260a34A238d82"
